@@ -25,7 +25,16 @@ function index() {
 
 
 
-  return <div>{message}</div>;
-}
+  return (
+<>
 
+      <h2>People List</h2>
+      <ul>
+        {people.map((person, index) => (
+          <li key={index}>{person}</li>
+        ))}
+      </ul>
+    </>
+  )
+}
 export default index;

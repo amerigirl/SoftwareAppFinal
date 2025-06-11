@@ -9,12 +9,17 @@ CORS(app)
 # create a route
 
 
-
-# /api/home 
 @app.route("/api/home", methods=["GET"])
 def return_home():
-    return jsonify({'message': 'Welcome to The Treasure Trove!'})
+    return jsonify({
+        'message': 'Welcome to The Treasure Trove!',
+        'people': [
+            'Alice',
+            'Bob',   
+            'Charlie',
+        ]
+    })
 
-#run
+#run the app
 if __name__ == '__main__':
     app.run(debug=True, port=8080) #uploaded from 5000 because of conflict with the frontend
