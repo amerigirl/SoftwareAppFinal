@@ -5,14 +5,25 @@ import React, { use, useEffect, useState } from "react";
 
 function index() {
   const [message, setMessage] = useState("Loading...");
+  const [people, setPeople] = useState([]);
 
   useEffect(() => {
+    // Fetch data from the server
     fetch("http://localhost:8080/api/home")
+      // transforming the response to json
       .then((response) => response.json())
-      .then((data) => 
+      .then((data) => {
+
         //this has to be a string: data.message otherise it won't render properly
-        setMessage(data.message || "No message received"));
+        setMessage(data.message || "No message received")
+        setPeople(data.people || [])
+        console.log(data.people)
+      });
+       
   }, []);
+
+
+
 
   return <div>{message}</div>;
 }
