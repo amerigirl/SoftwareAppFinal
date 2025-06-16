@@ -2,7 +2,6 @@ import { Box, Typography, Card, Button } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 
 const about = () => {
   return (
@@ -60,39 +59,22 @@ const about = () => {
           }}
         />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly", // or "space-between" or "center"
-          alignItems: "flex-start", // aligns cards at the top
-          flexWrap: "wrap", // allows wrapping on smaller screens
-          width: "50%",
-          minHeight: 500,
-        }}
-      >
-        <Card
-          sx={{
-            maxWidth: 345,
-          }}
-        >
-          <CardMedia
-            sx={{ height: 450 }}
-            image="/client/pages/movieReel.avif"
-            title="My Best Friend's Wedding"
-          />
-        </Card>
-        <Card
-          sx={{
-            maxWidth: 345,
-          }}
-        >
-          <CardMedia
-            sx={{ height: 450 }}
-            image="/movieReel.avif"
-            title="My Best Friend's Wedding"
-          />
-        </Card>
-      </Box>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          sx={{ height: 240 }}
+          image="/images.webp"
+          title="My Best Friend's Wedding"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Movies, movies MOVIES!
+          </Typography>
+  
+        </CardContent>
+        <CardActions>
+          <Button size="small">Click to search</Button>
+        </CardActions>
+      </Card>
     </>
   );
 };
