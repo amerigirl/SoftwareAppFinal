@@ -1,11 +1,23 @@
+import { Box, Typography } from "@mui/material";
+
 const about = () => {
-    return (
-        <>
-            <h1>About</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam adipisci nisi quam culpa alias voluptates ipsam. Nisi doloribus optio omnis, distinctio eum asperiores dolor quasi nobis culpa cumque blanditiis. Optio.</p>
-     
-        </>
-    );   
-}
- 
+  return (
+    <>
+          <Box sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center", 
+              marginTop: "3rem",
+          }}>
+              <Typography sx={{
+                  fontWeight: "bold", 
+                  fontSize: "x-large"
+              }}>
+                  Welcome to The Treasure Trove!
+              </Typography>
+      </Box>
+    </>
+  );
+};
+
 export default about;

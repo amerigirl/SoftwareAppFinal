@@ -1,5 +1,12 @@
+//import { AppBar, Toolbar, Stack } from "@mui/material";
+
 const navBar = () => {
-  return <p>Navbar works</p>;
+  return (
+    <p>
+      Hi
+</p>
+      
+  )
 };
 
 export default navBar;
