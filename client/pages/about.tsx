@@ -59,22 +59,39 @@ const about = () => {
           }}
         />
       </Box>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          sx={{ height: 240 }}
-          image="/images.webp"
-          title="My Best Friend's Wedding"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Movies, movies MOVIES!
-          </Typography>
-  
-        </CardContent>
-        <CardActions>
-          <Button size="small">Click to search</Button>
-        </CardActions>
-      </Card>
+      <Box sx={{display: "flex", textAlign:"center", justifyContent: "center", gap:"2rem", marginTop: "3rem"}}>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 240 }}
+            image="/images.webp"
+            title="My Best Friend's Wedding"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Search our list of AWESOME movies!
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="medium">Click to search</Button>
+          </CardActions>
+        </Card>
+
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 240 }}
+            image="/questionMark.jpg"
+            title="Question Mark Man"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Search our list of AWESOME movies!
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="medium">Click to search</Button>
+          </CardActions>
+        </Card>
+      </Box>
     </>
   );
 };
