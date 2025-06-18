@@ -68,27 +68,27 @@ const about = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Search our list of AWESOME movies!
+              Search our list of AWESOME movies :)
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium">Click to search</Button>
+            <Button size="medium">Search our collection</Button>
           </CardActions>
         </Card>
 
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
-            sx={{ height: 240 }}
+            sx={{ height: 240}}
             image="/questionMark.jpg"
             title="Question Mark Man"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Search our list of AWESOME movies!
+              We are always looking for additions to the Trove! 
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium">Click to search</Button>
+            <Button size="medium">Suggest a movie</Button>
           </CardActions>
         </Card>
       </Box>
