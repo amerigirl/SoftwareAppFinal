@@ -35,7 +35,7 @@ with app.app_context():
     # Clear existing data--not needed but good practice?
     Movie.query.delete()
     
-    # Create Movie instances via loop
+    # Create Movie object for EACH movie in db via loop
     movie_objects = [Movie(title=movie["title"], year=movie["year"], genre=movie["genre"]) for movie in movies]
     
     # Bulk insert into db
