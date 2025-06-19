@@ -41,3 +41,9 @@ with app.app_context():
     # Bulk insert into db
     db.session.add_all(movie_objects)
     db.session.commit()
+
+##debug issue:
+ # Debug print
+    print("Number of movies in DB after seeding:", MovieModel.query.count())
+    for m in MovieModel.query.all():
+        print(m)
