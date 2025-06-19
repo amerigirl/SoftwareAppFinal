@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 
 import React from "react";
 import { useEffect, useState } from "react";
@@ -9,11 +8,10 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 
 const SearchPage = () => {
-const [movieTitles, setMovieTitles] = useState([])
-const [isLoading, setIsLoading] = useState(true)
+  const [movieTitles, setMovieTitles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  
-  useEffect(() => { 
+  useEffect(() => {
     fetch(" http://127.0.0.1:8080/api/home")
       .then((response) => response.json())
       .then((data) => {
@@ -22,8 +20,8 @@ const [isLoading, setIsLoading] = useState(true)
         setMovieTitles(titles);
         setIsLoading(false);
       }, []);
-  })
-  
+  });
+
   return (
     <>
       <Box
@@ -69,23 +67,13 @@ const [isLoading, setIsLoading] = useState(true)
         </Box>
       </Box>
       <Stack spacing={2} sx={{ width: 300 }}>
-     
         <Autocomplete
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={movieTitles.map((option) => option.title)}
+          options={movieTitles}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search input"
-              slotProps={{
-                input: {
-                  ...params.InputProps,
-                  type: "search",
-                },
-              }}
-            />
+            <TextField {...params} label="Search movie titles" type="search" />
           )}
         />
       </Stack>
