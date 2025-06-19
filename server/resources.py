@@ -12,7 +12,10 @@ movieFields = {
     #addimageurl
 }
 
-class Movies(Resource):
-    @marshal_with(movieFields)
+class MovieResource(Resource):
     def get(self):
-        return MovieModel.query.all() #builds the sql query
+        movies = Movie.query.all()
+        return [
+            {"title": m.title, "year": m.year, "genre": m.genre}
+            for m in movies
+        ]

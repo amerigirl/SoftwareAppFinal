@@ -4,7 +4,7 @@ from  flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from models import db
-from resources import Movies
+from resources import MovieResource
 
 
 #app instance
@@ -26,14 +26,15 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 #add resource to API
-api.add_resource(Movies, '/api/movie')
+api.add_resource(MovieResource, '/api/movie')
 
 
 # create a route
-@app.route("/api/home", methods=["GET"])
+@app.route("/api/movie", methods=["GET"])
 def return_home():
     return jsonify({
-        'message': 'Welcome to The Treasure Trove!'
+       {"title": movie.title, "year": movie.year, "genre": movie.genre}
+        for movie in Movies
     })
 
 #run the app and create tables
