@@ -24,17 +24,39 @@ const SearchPage = () => {
 
   return (
     <>
+      <Typography sx={{textAlign:"center", marginTop:"3rem", fontSize: "3rem"        
+      }}>
+        Find your perfect movie tonight!
+      </Typography>
       <Box
         sx={{
           display: "flex",
-          gap: "2.5rem",
-          marginTop: "10rem",
+          gap: "7rem",
+          marginTop: "9rem",
           justifyContent: "center",
         }}
       >
-        <Typography sx={{ fontSize: "1.5rem", marginTop: "4rem" }}>
-          Your movie awaits! Start typing in the search bar to get started!
-        </Typography>
+        <Box>
+          <Typography sx={{ fontSize: "1.5rem", marginTop: "4rem" }}>
+            Your movie awaits! Start typing in the search bar to get started!
+          </Typography>
+          <Stack spacing={2} sx={{ width: 600, marginLeft: "3rem" , marginTop: "3rem"}}>
+            <Autocomplete
+              freeSolo
+              // is this needed? --> id="free-solo-2-demo"
+              disableClearable
+              options={movieTitles}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Search movie titles"
+                  type="search"
+                />
+              )}
+            />
+          </Stack>
+        </Box>
+
         <Box
           sx={{
             display: "grid",
@@ -66,17 +88,6 @@ const SearchPage = () => {
           />
         </Box>
       </Box>
-      <Stack spacing={2} sx={{ width: 300 }}>
-        <Autocomplete
-          freeSolo
-          id="free-solo-2-demo"
-          disableClearable
-          options={movieTitles}
-          renderInput={(params) => (
-            <TextField {...params} label="Search movie titles" type="search" />
-          )}
-        />
-      </Stack>
     </>
   );
 };
