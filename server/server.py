@@ -3,7 +3,7 @@ from flask_cors import CORS
 from  flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from models import db
+from models import db, MovieModel
 from resources import MovieResource
 
 
@@ -30,19 +30,18 @@ api.add_resource(MovieResource, '/api/movie')
 
 
 # create a route
-@app.route("/api/movie", methods=["GET"])
+@app.route("/api/home", methods=["GET"])
 def return_home():
-    return jsonify({
-       {"title": movie.title, "year": movie.year, "genre": movie.genre}
-        for movie in Movies
-    })
+    movies = MovieModel.query.all()
+    return jsonify([
+        {"title": movie.title, "year": movie.year, "genre": movie.genre}
+        for movie in movies
+    ])
+
 
 #run the app and create tables
 
-with app.app_context():
-    db.create_all()
-    app.run(debug=True, port=8080) #uploaded from 5000 because of conflict with the frontend
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, port=8080)

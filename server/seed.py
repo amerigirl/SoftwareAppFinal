@@ -1,5 +1,5 @@
 from server import app
-from models import db, Movie
+from models import db, MovieModel
 
 
 
@@ -33,10 +33,10 @@ movies = [
 
 with app.app_context():
     # Clear existing data--not needed but good practice?
-    Movie.query.delete()
+    MovieModel.query.delete()
     
     # Create Movie object for EACH movie in db via loop
-    movie_objects = [Movie(title=movie["title"], year=movie["year"], genre=movie["genre"]) for movie in movies]
+    movie_objects = [MovieModel(title=movie["title"], year=movie["year"], genre=movie["genre"]) for movie in movies]
     
     # Bulk insert into db
     db.session.add_all(movie_objects)
