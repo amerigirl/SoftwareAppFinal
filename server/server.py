@@ -20,10 +20,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app) 
 
 #add for migrations
-migrate = Migrate(app.db)
+migrate = Migrate(app, db)
 
 #add for API
 api = Api(app)
+
+#add resource to API
+api.add_resource(Movies, '/api/movie')
 
 
 # create a route
@@ -39,7 +42,6 @@ with app.app_context():
     db.create_all()
     app.run(debug=True, port=8080) #uploaded from 5000 because of conflict with the frontend
 
-api.add_resource(Movie, '/api/movie')
 
 if __name__ == '__main__':
     app.run(debug=True)
