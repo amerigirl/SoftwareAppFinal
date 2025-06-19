@@ -1,3 +1,8 @@
+from server import app
+from models import db, Movie
+
+
+
 movies = [
     {"title": "The Shawshank Redemption", "year": 1994, "genre": "Drama"},
     {"title": "The Dark Knight", "year": 2008, "genre": "Action"},
@@ -25,3 +30,14 @@ movies = [
     {"title": "The Pianist", "year": 2002, "genre": "Biography"},
 
 ]
+
+with app.app_context():
+    # Clear existing data--not needed but good practice?
+    Movie.query.delete()
+    
+    # Create Movie instances via loop
+    movie_objects = [Movie(title=movie["title"], year=movie["year"], genre=movie["genre"]) for movie in movies]
+    
+    # Bulk insert into db
+    db.session.add_all(movie_objects)
+    db.session.commit()
