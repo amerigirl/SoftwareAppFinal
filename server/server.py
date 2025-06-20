@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from  flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from models import db, MovieModel
+from models import db, MovieModel, SuggestAMovieModel
 from resources import MovieResource
 
 
@@ -38,7 +38,31 @@ def return_home():
         for movie in movies
     ])
 
+# create a route
+@app.route("/api/suggest", methods=["POST"])
+def suggest_movie():
+    data = request.get_json()
 
+    #required
+    title = data.get("title")
+    if not title:
+        return jsonify({"error": "Title is required"}), 400
+    
+
+    year = data.get("year")
+    genre = data.get("genre")
+    comment = data.get("comment")
+
+    # Create a new suggestion instance
+    suggestion = SuggestAMovieModel(
+        title=title,
+        year=year,
+        genre=genre,
+        comment=comment
+    )
+
+
+    
 #run the app and create tables
 
 if __name__ == '__main__':
