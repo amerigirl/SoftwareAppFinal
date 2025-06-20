@@ -61,8 +61,18 @@ def suggest_movie():
         comment=comment
     )
 
+    # Save to the database
+    db.session.add(suggestion)
+    db.session.commit()
 
-    
+    return jsonify({
+    "id": suggestion.id,
+    "title": suggestion.title,
+    "year": suggestion.year,
+    "genre": suggestion.genre,
+    "comment": suggestion.comment   
+    }), 201
+
 #run the app and create tables
 
 if __name__ == '__main__':
