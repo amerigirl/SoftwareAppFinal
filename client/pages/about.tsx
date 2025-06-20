@@ -2,6 +2,7 @@ import { Box, Typography, Card, Button } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Link from "next/link";
 
 const about = () => {
   return (
@@ -59,7 +60,15 @@ const about = () => {
           }}
         />
       </Box>
-      <Box sx={{display: "flex", textAlign:"center", justifyContent: "center", gap:"2rem", marginTop: "3rem"}}>
+      <Box
+        sx={{
+          display: "flex",
+          textAlign: "center",
+          justifyContent: "center",
+          gap: "2rem",
+          marginTop: "3rem",
+        }}
+      >
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             sx={{ height: 240 }}
@@ -72,23 +81,29 @@ const about = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium">Search our collection</Button>
+            <Link href="/searchpage" passHref legacyBehavior>
+              <Button size="medium" component="a">
+                Search our collection
+              </Button>
+            </Link>
           </CardActions>
         </Card>
 
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
-            sx={{ height: 240}}
+            sx={{ height: 240 }}
             image="/questionMark.jpg"
             title="Question Mark Man"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              We are always looking for additions to the Trove! 
+              We are always looking for additions to the Trove!
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium">Suggest a movie</Button>
+            <Link href="/suggest" passHref legacyBehavior>
+              <Button size="medium" component="a">Suggest a Movie</Button>
+            </Link>
           </CardActions>
         </Card>
       </Box>
