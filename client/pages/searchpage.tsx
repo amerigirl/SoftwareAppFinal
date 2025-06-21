@@ -32,19 +32,21 @@ const SearchPage = () => {
   const handleSelect = (e, value) => {
     if (value) {
       fetch(
-        //gets the title selected
         `http://127.0.0.1:8080/api/movie?title=${encodeURIComponent(value)}`
       )
         .then((response) => response.json())
-        .then((data) => setSelectedMovie(data[0]));
-        console.log(selectedMovie)
-      
-    
+        .then((data) => {
+          console.log("Fetched movie:", data[0]);
+          if (data[0]) {
+            console.log("Fetched movie image:", data[0].image);
+          }
+          setSelectedMovie(data[0]);
+        });
     } else {
-      //or resets back to null
       setSelectedMovie(null);
     }
   };
+  
   return (
     <>
       <Typography
@@ -87,9 +89,12 @@ const SearchPage = () => {
             <Box>
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
+                  component="img"
                   sx={{ height: 240 }}
                   title={selectedMovie.title}
-                  image={selectedMovie.imageUrl}
+                  image={selectedMovie.image}
+                  alt={selectedMovie.title}
+                
                 />
 
                 <CardContent>

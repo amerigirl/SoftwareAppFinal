@@ -8,15 +8,15 @@ movieFields = {
     'id': fields.Integer,
     'title': fields.String, 
     'year': fields.Integer,
-    'genre': fields.String
-    #addimageurl
+    'genre': fields.String,
+    'image': fields.String
 }
 
 movie_parser = reqparse.RequestParser()
 movie_parser.add_argument('title', type=str, required=True, help='Title is required')
 movie_parser.add_argument('year', type=int, required=True, help='Year is required')
 movie_parser.add_argument('genre', type=str, required=True, help='Genre is required')
-movie_parser.add_argument('image', type=str, required=False, help='Genre is required')
+movie_parser.add_argument('image', type=str, required=True, help='Image is required')
 
 class MovieResource(Resource):
     @marshal_with(movieFields)
