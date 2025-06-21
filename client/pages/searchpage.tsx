@@ -9,6 +9,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const SearchPage = () => {
   const [movieTitles, setMovieTitles] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8080/api/home")
@@ -17,14 +18,27 @@ const SearchPage = () => {
         //get titles
         const titles = data.map((movie) => movie.title);
         setMovieTitles(titles);
-      
       }, []);
   });
 
+  const handleSelect = (e, value) => {
+    if (value) {
+      fetch(
+        //gets the title selected
+        `http://127.0.0.1:8080/api/movies?title=${encodeURIComponent(value)}`
+      )
+        .then((response) => response.json())
+        .then((data) => setSelectedMovie(data[0]));
+    } else {
+      //or resets back to null
+      setSelectedMovie(null);
+    }
+  };
   return (
     <>
-      <Typography sx={{textAlign:"center", marginTop:"3rem", fontSize: "3rem"        
-      }}>
+      <Typography
+        sx={{ textAlign: "center", marginTop: "3rem", fontSize: "3rem" }}
+      >
         Find your perfect movie tonight!
       </Typography>
       <Box
@@ -39,7 +53,10 @@ const SearchPage = () => {
           <Typography sx={{ fontSize: "1.5rem", marginTop: "4rem" }}>
             Your movie awaits! Start typing in the search bar to get started!
           </Typography>
-          <Stack spacing={2} sx={{ width: 600, marginLeft: "3rem" , marginTop: "3rem"}}>
+          <Stack
+            spacing={2}
+            sx={{ width: 600, marginLeft: "3rem", marginTop: "3rem" }}
+          >
             <Autocomplete
               freeSolo
               // is this needed? --> id="free-solo-2-demo"
