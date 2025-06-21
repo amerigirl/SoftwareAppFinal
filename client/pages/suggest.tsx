@@ -16,8 +16,10 @@ const SuggestionForm = () => {
       .then((response) => response.json())
       .then((data) => {
         const mGenres = data.map((movie) => movie.genre);
-        setGenres(mGenres);
-        console.log(mGenres);
+        //got rid of the multiple genres printing to view issue via using a set
+        const uniqueGenres = [...new Set(mGenres)];
+        setGenres(uniqueGenres);
+        console.log(uniqueGenres);
       });
   }, []);
 
@@ -123,18 +125,7 @@ const SuggestionForm = () => {
           justifyContent: "center",
         }}
       >
-        <Box>
-          <Typography
-            sx={{
-              marginTop: "20rem",
-              marginBottom: "10rem",
-              fontSize: "1.5rem",
-            }}
-          >
-            Here is our current list of available genres &#8594;
-          </Typography>
-        </Box>
-
+     
         <Box
           sx={{
             textAlign: "center",
@@ -166,7 +157,7 @@ const SuggestionForm = () => {
           sx={{ marginBottom: "2rem" }}
         >
           {genre.map((g) => (
-            <Chip key={g.id} label={g.name} color="primary" />
+            <Chip key={g} label={g} color="primary" />  
           ))}
         </Stack>
 
