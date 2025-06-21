@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Card, CardMedia, CardActions } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -103,6 +103,27 @@ const SearchPage = () => {
             }}
           />
         </Box>
+      </Box>
+      <Box>
+          <Card sx={{ maxWidth: 345 }}>
+                 <CardMedia
+                   sx={{ height: 240 }}
+                   image="/images.webp"
+                   title="My Best Friend's Wedding"
+                 />
+                 <CardContent>
+                   <Typography gutterBottom variant="h5" component="div">
+                     Search our list of AWESOME movies :)
+                   </Typography>
+                 </CardContent>
+                 <CardActions>
+                   <Link href="/searchpage" passHref legacyBehavior>
+                     <Button size="medium" component="a">
+                       Search our collection
+                     </Button>
+                   </Link>
+                 </CardActions>
+               </Card>
       </Box>
     </>
   );
