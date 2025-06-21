@@ -11,23 +11,28 @@ const SuggestionForm = () => {
 
   // Handle input changes
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({ 
+      ...form, 
+      [e.target.name]: e.target.value 
+    });
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: send form data to your backend
-    alert(`Suggested: ${form.title} (${form.year}) - ${form.genre}`);
+
+    alert(`Form submitted!`);
     setForm({ title: "", year: "", genre: "", notes: "" });
   };
 
   return (
     <>
-          <Box sx={{ display: "flex" }}>
-              <Box>
-                  
-              </Box>
+      <Box sx={{ marginTop: "4rem", textAlign: "center" }}>
+        <Typography sx={{ fontSize: "2.5rem" }}>
+          Suggest an Awesome Movie!
+        </Typography>
+      </Box>
+      <Box sx={{ display: "flex", marginTop: "3rem" }}>
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -37,12 +42,9 @@ const SuggestionForm = () => {
             gap: 2,
             width: 400,
             mx: "auto",
-            mt: 6,
+         
           }}
         >
-          <Typography variant="h5" align="center">
-            Suggest a Movie
-          </Typography>
           <TextField
             label="Movie Title"
             name="title"
@@ -64,14 +66,14 @@ const SuggestionForm = () => {
             onChange={handleChange}
           />
           <TextField
-            label="Why do you recommend it?"
+            label="Why is this movie awesome?!"
             name="notes"
             value={form.notes}
             onChange={handleChange}
             multiline
-            rows={3}
+            rows={4}
           />
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="outlined">
             Submit Suggestion
           </Button>
         </Box>
