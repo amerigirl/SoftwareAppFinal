@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, TextField, Button, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, TextField, Button, Typography, Stack, Chip } from "@mui/material";
 
 const SuggestionForm = () => {
   const [form, setForm] = useState({
@@ -8,9 +8,18 @@ const SuggestionForm = () => {
     genre: "",
     notes: "",
   });
-  const[genreName, setGenreName] = useState("")
-  const [genre, setGenres] = useState([])
+  const [genreName, setGenreName] = useState("");
+  const [genre, setGenres] = useState([]);
 
+  useEffect(() => {
+    fetch("http://127.0.0.1:8080/api/home")
+      .then((response) => response.json())
+      .then((data) => {
+        const mGenres = data.map((movie) => movie.genre);
+        setGenres(mGenres);
+        console.log(mGenres);
+      });
+  }, []);
 
   // Handle input change on form
   const handleChange = (e) => {
@@ -28,11 +37,11 @@ const SuggestionForm = () => {
     setForm({ title: "", year: "", genre: "", notes: "" });
   };
 
-  const handleGenreChange = (e) => { 
+  const handleGenreSubmit = (e) => {
     e.preventDefault();
-    alert('Genre request submitted')
-    setGenres()
-  }
+    alert("Genre request submitted");
+    setGenreName(""); //this will reset the box
+  };
 
   return (
     <>
@@ -115,17 +124,72 @@ const SuggestionForm = () => {
         }}
       >
         <Box>
-          <Typography sx={{ marginTop: "15rem", marginBottom: "10rem", fontSize:"1.5rem" }}>
+          <Typography
+            sx={{
+              marginTop: "20rem",
+              marginBottom: "10rem",
+              fontSize: "1.5rem",
+            }}
+          >
             Here is our current list of available genres &#8594;
           </Typography>
         </Box>
-        <Box sx={{ textAlign: "center" }}>
+
+        <Box
+          sx={{
+            textAlign: "center",
+            marginTop: "5rem",
+            display: "grid",
+            flexDirection: "column",
+          }}
+        >
           <Typography variant="div" sx={{ fontSize: "2.5rem", color: "blue" }}>
-            Want to add a WHOLE genre?
+            Want to add a WHOLE genre? OK!
           </Typography>
-          <Typography sx={{ fontSize: "2.5rem", color: "blue" }}>
-            OK!
-          </Typography>
+        </Box>
+      </Box>
+
+      <Box sx={{ textAlign: "center", marginTop: "8rem" }}>
+        <Typography sx={{ fontSize: "1.5rem", margin: "2rem" }}>
+          Suggest a new genre for our collection!
+        </Typography>
+
+        {/* Show existing genres */}
+        <Typography sx={{ fontWeight: "bold", marginBottom: "1rem" }}>
+          Existing genres:
+        </Typography>
+        <Stack
+          direction="row"
+          spacing={1}
+          justifyContent="center"
+          flexWrap="wrap"
+          sx={{ mb: 2 }}
+        >
+          {genre.map((g) => (
+            <Chip key={g.id} label={g.name} color="primary" />
+          ))}
+        </Stack>
+
+        <Box
+          component="form"
+          onSubmit={handleGenreSubmit}
+          sx={{
+            display: "inline-flex",
+            flexDirection: "row",
+            gap: 2,
+            alignItems: "center",
+            marginTop: "2rem",
+          }}
+        >
+          <TextField
+            label="Genre Name"
+            value={genreName}
+            onChange={(e) => setGenreName(e.target.value)}
+            required
+          />
+          <Button type="submit" variant="contained">
+            Submit Genre
+          </Button>
         </Box>
       </Box>
     </>

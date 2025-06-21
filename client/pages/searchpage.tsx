@@ -9,16 +9,15 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const SearchPage = () => {
   const [movieTitles, setMovieTitles] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(" http://127.0.0.1:8080/api/home")
+    fetch("http://127.0.0.1:8080/api/home")
       .then((response) => response.json())
       .then((data) => {
         //get titles
         const titles = data.map((movie) => movie.title);
         setMovieTitles(titles);
-        setIsLoading(false);
+      
       }, []);
   });
 
