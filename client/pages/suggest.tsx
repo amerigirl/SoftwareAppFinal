@@ -11,9 +11,9 @@ const SuggestionForm = () => {
 
   // Handle input changes
   const handleChange = (e) => {
-    setForm({ 
-      ...form, 
-      [e.target.name]: e.target.value 
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -31,8 +31,32 @@ const SuggestionForm = () => {
         <Typography sx={{ fontSize: "2.5rem" }}>
           Suggest an Awesome Movie!
         </Typography>
+       <Typography sx={{ fontSize: "1.5rem", margin:"3rem", width: "80%" }}>
+          See a great movie that is not on the list? Take a moment to fill out
+          our handy-dandy suggestion form! An associate will check it for
+          awesomeness and, if it passes, add it to the list!
+        </Typography>  
       </Box>
-      <Box sx={{ display: "flex", marginTop: "3rem" }}>
+
+      
+       
+
+
+      <Box
+        sx={{
+          display: "flex",
+          marginTop: "8rem",
+          gap: "6rem",
+          justifyContent: "center",
+          marginRight: "8rem",
+        }}
+      >
+        <Box
+          component="img"
+          src="/questionMark.jpg"
+          alt="Question Mark Man"
+          sx={{ width: 300, height: 400, marginLeft: "5rem" }}
+        />
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -41,8 +65,6 @@ const SuggestionForm = () => {
             flexDirection: "column",
             gap: 2,
             width: 400,
-            mx: "auto",
-         
           }}
         >
           <TextField
