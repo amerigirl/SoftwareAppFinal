@@ -8,8 +8,11 @@ const SuggestionForm = () => {
     genre: "",
     notes: "",
   });
+  const[genreName, setGenreName] = useState("")
+  const [genre, setGenres] = useState([])
 
-  // Handle input changes
+
+  // Handle input change on form
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -21,26 +24,28 @@ const SuggestionForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert(`Form submitted!`);
+    alert(`Suggestion form submitted!`);
     setForm({ title: "", year: "", genre: "", notes: "" });
   };
+
+  const handleGenreChange = (e) => { 
+    e.preventDefault();
+    alert('Genre request submitted')
+    setGenres()
+  }
 
   return (
     <>
       <Box sx={{ marginTop: "4rem", textAlign: "center" }}>
-        <Typography sx={{ fontSize: "2.5rem" }}>
-          Suggest an Awesome Movie!
+        <Typography sx={{ fontSize: "2.5rem", color: "blue" }}>
+          Suggests, Suggestions, Suggestions!
         </Typography>
-       <Typography sx={{ fontSize: "1.5rem", margin:"3rem", width: "80%" }}>
+        <Typography sx={{ fontSize: "1.5rem", margin: "3rem", width: "80%" }}>
           See a great movie that is not on the list? Take a moment to fill out
           our handy-dandy suggestion form! An associate will check it for
           awesomeness and, if it passes, add it to the list!
-        </Typography>  
+        </Typography>
       </Box>
-
-      
-       
-
 
       <Box
         sx={{
@@ -99,6 +104,17 @@ const SuggestionForm = () => {
             Submit Suggestion
           </Button>
         </Box>
+      </Box>
+      <Box>
+        <Box sx={{textAlign:"center", marginTop:"8rem"}}>
+          <Typography variant="div" sx={{ fontSize: "2.5rem", color: "blue"}}>
+          Want to add a WHOLE genre?
+          </Typography>
+          <Typography sx={{fontSize: "2.5rem", color:"blue"}}>
+            OK!
+          </Typography>
+        </Box>
+        
       </Box>
     </>
   );
