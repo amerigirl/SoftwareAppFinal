@@ -33,10 +33,13 @@ const SearchPage = () => {
     if (value) {
       fetch(
         //gets the title selected
-        `http://127.0.0.1:8080/api/movies?title=${encodeURIComponent(value)}`
+        `http://127.0.0.1:8080/api/movie?title=${encodeURIComponent(value)}`
       )
         .then((response) => response.json())
         .then((data) => setSelectedMovie(data[0]));
+        console.log(selectedMovie)
+      
+    
     } else {
       //or resets back to null
       setSelectedMovie(null);
@@ -79,13 +82,14 @@ const SearchPage = () => {
               )}
             />
           </Stack>
+
           {selectedMovie && (
             <Box>
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   sx={{ height: 240 }}
                   title={selectedMovie.title}
-                  image={selectedMovie.imageUrl || "/placeholder.jpg"}
+                  image={selectedMovie.imageUrl}
                 />
 
                 <CardContent>
