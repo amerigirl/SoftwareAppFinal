@@ -1,6 +1,6 @@
 #creates routes
 
-from flask_restful import Resource, reqparse, fields, marshal_with
+from flask_restful import Resource, reqparse, fields, request, marshal_with
 from models import db, MovieModel
 
 #serialize the Rental Model object
@@ -25,10 +25,15 @@ class MovieResource(Resource):
         if movie_id:
             movie = MovieModel.query.get_or_404(movie_id)
             return movie
+        elif title:
+            movie = MovieModel.query.filter_by(title=title).first()
+            if movie:
+                return [movie]  # Return as a list to match frontend expectation
+            else:
+                return [], 404
         else:
             movies = MovieModel.query.all()
             return movies
-
 
     @marshal_with(movieFields)
     def post(self):
