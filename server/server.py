@@ -35,7 +35,7 @@ api.add_resource(MovieResource, '/api/movie', '/api/movie/<int:movie_id>')
 def return_home():
     movies = MovieModel.query.all()
     return jsonify([
-        {"title": movie.title, "year": movie.year, "genre": movie.genre}
+        {"title": movie.title, "year": movie.year, "genre": movie.genre, "image": movie.image}
         for movie in movies
     ])
 

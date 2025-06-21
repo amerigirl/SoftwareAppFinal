@@ -7,11 +7,11 @@ class MovieModel(db.Model):
     title = db.Column(db.String(100), nullable=False)
     year = db.Column(db.Integer)
     genre = db.Column(db.String(50))
-    #addimageurl
+    image = db.Column(db.String(100))
 
     #lets us see the object when we print it out
     def __repr__(self):
-        return f"<Movie {self.id} {self.title} {self.year} {self.genre}"
+        return f"<Movie {self.id} {self.title} {self.year} {self.genre} {self.image}"
 
 
 class SuggestAMovieModel(db.Model):
