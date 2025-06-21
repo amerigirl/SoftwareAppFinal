@@ -2,39 +2,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 
 function index() {
-  const [message, setMessage] = useState("Loading...");
-  const [people, setPeople] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
-    // Fetch data from the server
-    fetch("http://localhost:8080/api/home")
-      // transforming the response to json
-      .then((response) => response.json())
-      .then((data) => {
-
-        //this has to be a string: data.message otherise it won't render properly
-        setMessage(data.message || "No message received")
-        setPeople(data.people || [])
-        console.log(data.people)
-      });
-       
-  }, []);
-
-
-
-
-  return (
-<>
-
-      <h2>People List</h2>
-      <ul>
-        {people.map((person, index) => (
-          <li key={index}>{person}</li>
-        ))}
-      </ul>
-    </>
-  )
+  
+       router.replace("/about")
+  }, [router]);
+  
+  return null;
 }
 export default index;
