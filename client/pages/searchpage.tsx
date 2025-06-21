@@ -57,7 +57,7 @@ const SearchPage = () => {
       <Box
         sx={{
           display: "flex",
-          gap: "7rem",
+          gap: "4rem",
           marginTop: "9rem",
           justifyContent: "center",
         }}
@@ -86,11 +86,11 @@ const SearchPage = () => {
           </Stack>
 
           {selectedMovie && (
-            <Box>
+            <Box sx={{marginTop: "3rem", marginLeft:"10rem"}}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   component="img"
-                  sx={{ height: 240 }}
+                  sx={{ maxHeight: 340, marginTop:"2rem" }}
                   title={selectedMovie.title}
                   image={selectedMovie.image}
                   alt={selectedMovie.title}
