@@ -2,7 +2,15 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
-import { Box, Typography, Card, CardMedia, CardActions } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  CardMedia,
+  CardActions,
+  Button,
+  CardContent,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -18,8 +26,8 @@ const SearchPage = () => {
         //get titles
         const titles = data.map((movie) => movie.title);
         setMovieTitles(titles);
-      }, []);
-  });
+      });
+  }, []);
 
   const handleSelect = (e, value) => {
     if (value) {
@@ -59,9 +67,9 @@ const SearchPage = () => {
           >
             <Autocomplete
               freeSolo
-              // is this needed? --> id="free-solo-2-demo"
               disableClearable
               options={movieTitles}
+              onChange={handleSelect}
               renderInput={(params) => (
                 <TextField
                   {...params}
@@ -71,6 +79,33 @@ const SearchPage = () => {
               )}
             />
           </Stack>
+          {selectedMovie && (
+            <Box>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  sx={{ height: 240 }}
+                  title={selectedMovie.title}
+                  image={selectedMovie.imageUrl || "/placeholder.jpg"}
+                />
+
+                <CardContent>
+                  <Typography variant="h5">{selectedMovie.title}</Typography>
+                  <Typography color="text.secondary">
+                    {selectedMovie.year}
+                  </Typography>
+                  <Typography sx={{ marginBottom: 1.5 }}>
+                    {selectedMovie.genre}
+                  </Typography>
+                </CardContent>
+
+                <CardActions>
+                  <Button size="medium" component="a">
+                    Checkout
+                  </Button>
+                </CardActions>
+              </Card>
+            </Box>
+          )}
         </Box>
 
         <Box
@@ -103,27 +138,6 @@ const SearchPage = () => {
             }}
           />
         </Box>
-      </Box>
-      <Box>
-          <Card sx={{ maxWidth: 345 }}>
-                 <CardMedia
-                   sx={{ height: 240 }}
-                   image="/images.webp"
-                   title="My Best Friend's Wedding"
-                 />
-                 <CardContent>
-                   <Typography gutterBottom variant="h5" component="div">
-                     Search our list of AWESOME movies :)
-                   </Typography>
-                 </CardContent>
-                 <CardActions>
-                   <Link href="/searchpage" passHref legacyBehavior>
-                     <Button size="medium" component="a">
-                       Search our collection
-                     </Button>
-                   </Link>
-                 </CardActions>
-               </Card>
       </Box>
     </>
   );
