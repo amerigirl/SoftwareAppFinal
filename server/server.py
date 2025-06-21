@@ -45,6 +45,7 @@ def suggest_movie():
 
     #required
     title = data.get("title")
+
     if not title:
         return jsonify({"error": "Title is required"}), 400
     
@@ -52,6 +53,7 @@ def suggest_movie():
     year = data.get("year")
     genre = data.get("genre")
     comment = data.get("comment")
+
 
     # Create a new suggestion instance
     suggestion = SuggestAMovieModel(
@@ -72,6 +74,18 @@ def suggest_movie():
     "genre": suggestion.genre,
     "comment": suggestion.comment   
     }), 201
+
+
+
+@app.route("/api/genre", methods=["GET"])
+def new_genre():
+    data = request.json()
+
+    genre = data.get("genre")
+    if not genre:
+        return jsonify({"error": "Genre is required"}), 400
+
+    genre=genre
 
 #run the app and create tables
 

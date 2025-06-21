@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function index() {
   const [message, setMessage] = useState("Loading...");

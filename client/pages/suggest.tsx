@@ -129,7 +129,7 @@ const SuggestionForm = () => {
         <Box
           sx={{
             textAlign: "center",
-            marginTop: "5rem",
+            marginTop: "3rem",
             display: "grid",
             flexDirection: "column",
           }}
@@ -140,7 +140,7 @@ const SuggestionForm = () => {
         </Box>
       </Box>
 
-      <Box sx={{ textAlign: "center", marginTop: "8rem" }}>
+      <Box sx={{ textAlign: "center", marginTop: "6rem" }}>
         <Typography sx={{ fontSize: "1.5rem", margin: "2rem" }}>
           Suggest a new genre for our collection!
         </Typography>
@@ -170,6 +170,7 @@ const SuggestionForm = () => {
             gap: 2,
             alignItems: "center",
             marginTop: "2rem",
+            marginBottom:"5rem"
           }}
         >
           <TextField
