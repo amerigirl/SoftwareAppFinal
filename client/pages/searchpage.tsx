@@ -11,6 +11,7 @@ import {
   Button,
   CardContent,
 } from "@mui/material";
+import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -49,6 +50,20 @@ const SearchPage = () => {
   
   return (
     <>
+      <Link href="/about" passHref legacyBehavior>
+        <Button
+          component="a"
+          sx={{
+            fontWeight: "bold",
+            margin: "2rem",
+            marginLeft: "4rem",
+            fontSize: "1rem",
+          }}
+        >
+          Home
+        </Button>
+      </Link>
+
       <Typography
         sx={{ textAlign: "center", marginTop: "3rem", fontSize: "3rem" }}
       >
@@ -86,15 +101,14 @@ const SearchPage = () => {
           </Stack>
 
           {selectedMovie && (
-            <Box sx={{marginTop: "3rem", marginLeft:"10rem"}}>
+            <Box sx={{ marginTop: "3rem", marginLeft: "10rem" }}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   component="img"
-                  sx={{ maxHeight: 340, marginTop:"2rem" }}
+                  sx={{ maxHeight: 340, marginTop: "2rem" }}
                   title={selectedMovie.title}
                   image={selectedMovie.image}
                   alt={selectedMovie.title}
-                
                 />
 
                 <CardContent>
@@ -109,7 +123,8 @@ const SearchPage = () => {
 
                 <CardActions>
                   <Button size="medium" component="a">
-                    Checkout (**Not yet implemented)
+                    Checkout (**future implementation) Update (**future
+                    implementation)
                   </Button>
                 </CardActions>
               </Card>

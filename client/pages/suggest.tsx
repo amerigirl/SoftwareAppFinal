@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, TextField, Button, Typography, Stack, Chip } from "@mui/material";
+import Link from 'next/Link';
+
 
 const SuggestionForm = () => {
   const [form, setForm] = useState({
@@ -47,8 +49,21 @@ const SuggestionForm = () => {
 
   return (
     <>
+      <Link href="/about" passHref legacyBehavior>
+        <Button
+          component="a"
+          sx={{
+            fontWeight: "bold",
+            margin: "2rem",
+            marginLeft: "4rem",
+            fontSize: "1rem",
+          }}
+        >
+          Home
+        </Button>
+      </Link>
       <Box sx={{ marginTop: "4rem", textAlign: "center" }}>
-        <Typography sx={{ fontSize: "2.5rem", color: "blue" }}>
+        <Typography sx={{ fontSize: "2.5rem", color: "green" }}>
           Suggests, Suggestions, Suggestions!
         </Typography>
         <Typography sx={{ fontSize: "1.5rem", margin: "3rem", width: "80%" }}>
@@ -125,7 +140,6 @@ const SuggestionForm = () => {
           justifyContent: "center",
         }}
       >
-     
         <Box
           sx={{
             textAlign: "center",
@@ -134,7 +148,7 @@ const SuggestionForm = () => {
             flexDirection: "column",
           }}
         >
-          <Typography variant="div" sx={{ fontSize: "2.5rem", color: "blue" }}>
+          <Typography variant="div" sx={{ fontSize: "2.5rem", color: "red" }}>
             Want to add a WHOLE genre? OK!
           </Typography>
         </Box>
@@ -157,7 +171,7 @@ const SuggestionForm = () => {
           sx={{ marginBottom: "2rem" }}
         >
           {genre.map((g) => (
-            <Chip key={g} label={g} color="primary" />  
+            <Chip key={g} label={g} color="primary" />
           ))}
         </Stack>
 
@@ -170,7 +184,7 @@ const SuggestionForm = () => {
             gap: 2,
             alignItems: "center",
             marginTop: "2rem",
-            marginBottom:"5rem"
+            marginBottom: "5rem",
           }}
         >
           <TextField
