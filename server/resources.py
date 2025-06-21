@@ -16,10 +16,12 @@ movie_parser = reqparse.RequestParser()
 movie_parser.add_argument('title', type=str, required=True, help='Title is required')
 movie_parser.add_argument('year', type=int, required=True, help='Year is required')
 movie_parser.add_argument('genre', type=str, required=True, help='Genre is required')
+movie_parser.add_argument('image', type=str, required=False, help='Genre is required')
 
 class MovieResource(Resource):
     @marshal_with(movieFields)
     def get(self, movie_id=None):
+        title = request.args.get('title')
         if movie_id:
             movie = MovieModel.query.get_or_404(movie_id)
             return movie
