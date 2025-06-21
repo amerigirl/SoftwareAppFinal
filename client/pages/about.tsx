@@ -65,14 +65,15 @@ const about = () => {
           display: "flex",
           textAlign: "center",
           justifyContent: "center",
-          gap: "2rem",
-          marginTop: "3rem",
+          gap: "6rem",
+          marginTop: "1rem",
         }}
       >
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth:400 }}>
           <CardMedia
-            sx={{ height: 240 }}
-            image="/images.webp"
+            component="img"
+            sx={{ maxHeight: 345, objectFit:"contain"}}
+            image="/myBFWedding.jpg"
             title="My Best Friend's Wedding"
           />
           <CardContent>
@@ -91,7 +92,7 @@ const about = () => {
 
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
-            sx={{ height: 240 }}
+            sx={{ height: 350 }}
             image="/questionMark.jpg"
             title="Question Mark Man"
           />
