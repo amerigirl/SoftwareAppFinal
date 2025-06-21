@@ -109,7 +109,7 @@ const SearchPage = () => {
 
                 <CardActions>
                   <Button size="medium" component="a">
-                    Checkout
+                    Checkout (**Not yet implemented)
                   </Button>
                 </CardActions>
               </Card>
