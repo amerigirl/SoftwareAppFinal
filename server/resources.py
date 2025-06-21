@@ -12,6 +12,12 @@ movieFields = {
     #addimageurl
 }
 
+movie_parser = reqparse.RequestParser()
+movie_parser.add_argument('title', type=str, required=True, help='Title is required')
+movie_parser.add_argument('year', type=int, required=True, help='Year is required')
+movie_parser.add_argument('genre', type=str, required=True, help='Genre is required')
+
+
 class MovieResource(Resource):
     def get(self):
         movies = Movie.query.all()
