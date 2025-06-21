@@ -163,7 +163,7 @@ const SuggestionForm = () => {
           spacing={1}
           justifyContent="center"
           flexWrap="wrap"
-          sx={{ mb: 2 }}
+          sx={{ marginBottom: "2rem" }}
         >
           {genre.map((g) => (
             <Chip key={g.id} label={g.name} color="primary" />
@@ -187,7 +187,7 @@ const SuggestionForm = () => {
             onChange={(e) => setGenreName(e.target.value)}
             required
           />
-          <Button type="submit" variant="contained">
+          <Button type="submit" variant="outlined">
             Submit Genre
           </Button>
         </Box>
