@@ -15,7 +15,7 @@ movies = [
         "title": "The Dark Knight",
         "year": 2008,
         "genre": "Action",
-        "image": "https://m.media-amazon.com/images/I/51EbJjlLQzL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/819XyYWjfXL._UF894,1000_QL80_.jpg"
     },
     {
         "title": "Pulp Fiction",
@@ -27,13 +27,13 @@ movies = [
         "title": "Forrest Gump",
         "year": 1994,
         "genre": "Drama",
-        "image": "https://m.media-amazon.com/images/I/61KcQf5bYUL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/51pv80RoY8L._UF1000,1000_QL80_.jpg"
     },
     {
         "title": "Inception",
         "year": 2010,
         "genre": "Sci-Fi",
-        "image": "https://m.media-amazon.com/images/I/51oDxnYQmGL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/71uKM+LdgFL.jpg"
     },
     {
         "title": "Fight Club",
@@ -57,37 +57,37 @@ movies = [
         "title": "Star Wars: Episode V - The Empire Strikes Back",
         "year": 1980,
         "genre": "Sci-Fi",
-        "image": "https://m.media-amazon.com/images/I/51NpxXUQ8GL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/81tbwARBd4L._UF894,1000_QL80_.jpg"
     },
     {
         "title": "The Silence of the Lambs",
         "year": 1991,
         "genre": "Thriller",
-        "image": "https://m.media-amazon.com/images/I/71c9w6bQXRL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/41NbrryC3VL._SX300_SY300_QL70_FMwebp_.jpg"
     },
     {
         "title": "Saving Private Ryan",
         "year": 1998,
         "genre": "War",
-        "image": "https://m.media-amazon.com/images/I/51c6S4kGFmL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/71NvAIxHNOL._SX342_.jpg"
     },
     {
         "title": "The Green Mile",
         "year": 1999,
         "genre": "Drama",
-        "image": "https://m.media-amazon.com/images/I/51k0qa6qH-L._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/41q93DnX31L._SX300_SY300_QL70_FMwebp_.jpg"
     },
     {
         "title": "Schindler's List",
         "year": 1993,
         "genre": "History",
-        "image": "https://m.media-amazon.com/images/I/51K8ouYrHeL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/A1ErGu1XtcL._UF894,1000_QL80_.jpg"
     },
     {
         "title": "The Lion King",
         "year": 1994,
         "genre": "Animation",
-        "imageUrl": "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_SY679_.jpg"
+        "image": "https://m.media-amazon.com/images/I/41AiTBoCusL._SX300_SY300_QL70_FMwebp_.jpg"
     },
     {
         "title": "Interstellar",
@@ -99,7 +99,7 @@ movies = [
         "title": "Gladiator",
         "year": 2000,
         "genre": "Action",
-        "image": "https://m.media-amazon.com"
+        "image": "https://m.media-amazon.com/images/I/51DjAuJlXDL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
     }
 
 ]
