@@ -105,16 +105,28 @@ const SuggestionForm = () => {
           </Button>
         </Box>
       </Box>
-      <Box>
-        <Box sx={{textAlign:"center", marginTop:"8rem"}}>
-          <Typography variant="div" sx={{ fontSize: "2.5rem", color: "blue"}}>
-          Want to add a WHOLE genre?
+
+      <Box
+        sx={{
+          display: "flex",
+          marginTop: "8rem",
+          gap: "6rem",
+          justifyContent: "center",
+        }}
+      >
+        <Box>
+          <Typography sx={{ marginTop: "15rem", marginBottom: "10rem", fontSize:"1.5rem" }}>
+            Here is our current list of available genres &#8594;
           </Typography>
-          <Typography sx={{fontSize: "2.5rem", color:"blue"}}>
+        </Box>
+        <Box sx={{ textAlign: "center" }}>
+          <Typography variant="div" sx={{ fontSize: "2.5rem", color: "blue" }}>
+            Want to add a WHOLE genre?
+          </Typography>
+          <Typography sx={{ fontSize: "2.5rem", color: "blue" }}>
             OK!
           </Typography>
         </Box>
-        
       </Box>
     </>
   );
