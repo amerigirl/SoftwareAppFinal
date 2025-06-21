@@ -25,3 +25,12 @@ class SuggestAMovieModel(db.Model):
 #lets us see the object when we print it out
     def __repr__(self):
         return f"<Movie {self.id} {self.title} {self.year} {self.genre} {self.comment}"
+    
+
+class GenreModel(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    genre = db.Column(db.String(50), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f"<Genre {self.id}, {self.genre}"
+    

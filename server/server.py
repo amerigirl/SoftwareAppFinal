@@ -26,7 +26,8 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 #add resource to API
-api.add_resource(MovieResource, '/api/movie')
+
+api.add_resource(MovieResource, '/api/movie', '/api/movie/<int:movie_id>')
 
 
 # create a route
